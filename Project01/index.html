@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>REACT- First Project</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+</head>
+<body>
+	<div id="app"></div>
+      
+ 
+
+
+	<script type="text/babel">
+		var NavBar = React.createClass({
+      propTypes: {
+        brand: React.PropTypes.string.isRequired
+      },
+      getDefaultProps: function () {
+        return {
+          brand: 'ReactJS',
+          color: 'light'
+        }
+      },
+      render: function () {
+        
+
+        var homeActive = '';
+        var aboutActive = '';
+        if (this.props.page === 'home') {
+          homeActive = 'active';
+        } else if (this.props.page === 'about') {
+          aboutActive = 'active';
+        }
+        return(
+        <div>
+					<nav className="navbar navbar-default navbar-fixed-top">
+        <div className="container">
+          <div className="navbar-header">
+            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </button>
+            <a className="navbar-brand" href="#">{this.props.brand}</a>
+          </div>
+          <div id="navbar" className="navbar-collapse collapse">
+            <ul className="nav navbar-nav">
+
+              <li className={homeActive}>
+              <a onClick={this.props.homeClick} href="#">Home</a>
+              </li>
+
+              <li className={aboutActive}>
+              <a onClick={this.props.aboutClick} href="#">About</a>
+              </li>
+
+              
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+      </div>
+				)
+			}
+		});
+
+
+    var  Jumbotron = React.createClass({
+
+      propTypes : {
+          heading : React.PropTypes.string,
+          text : React.PropTypes.string,
+          link : React.PropTypes.string
+      },
+      getDefaultProps: function(){
+        return {
+            heading: "Welcome to React!",
+            text: "Our App built with React Components, Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            link: "https://facebook.github.io/react/index.html"
+        }
+      },
+      render: function(){
+        return(
+          
+            <div className="Jumbotron">
+              <div className="container">
+                <h1  className="text-center">{this.props.heading}</h1>
+                <h4  className="text-center">A JAVASCRIPT LIBRARY FOR BUILDING USER INTERFACES</h4>
+                <p  className="text-center">{this.props.text}</p>
+                <p  className="text-center"><a className="btn btn-primary btn-lg" href={this.props.link} role="button">Learn more &raquo;</a></p>
+              </div>
+            </div>
+
+        )
+      }
+    });
+
+
+    // Home page Component
+    var PageHome = React.createClass({
+
+      getDefaultProps:function(){
+          link: "http://lorempixel.com/400/200/"
+      },
+      render: function () {
+        return(
+            <div className="container">
+              <div className="row">
+        <div className="col-lg-4">
+          <img className="img-responsive" src="http://lorempixel.com/400/200/transport" alt="" />
+          <h2>Safari bug warning!</h2>
+          <p className="text-danger">As of v8.0, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a className="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div className="col-lg-4">
+        <img className="img-responsive" src="http://lorempixel.com/400/200/sports" alt="" />
+          <h2>Services</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a className="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div className="col-lg-4">
+        <img className="img-responsive" src="http://lorempixel.com/400/200/" alt="" />
+          <h2>Products</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+          <p><a className="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+              
+            </div>
+        )
+      }
+    });
+
+    // About page Component
+    var PageAbout = React.createClass({
+      render: function () {
+        return(
+            <div className="container">
+              <div className="row">
+              <div className="col-xs-12 col-sm-9">
+                <h2 className="page-header">About Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates cum consequatur nemo consectetur dolore eius, tenetur sequi adipisci et voluptate quidem quos blanditiis vel. Recusandae aliquam pariatur impedit quia sit! Voluptatem, eius, ut!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, earum alias voluptate modi obcaecati, provident blanditiis quam omnis, sapiente accusantium reiciendis at quibusdam dignissimos esse cupiditate, excepturi neque quae culpa et temporibus expedita quos consequuntur fugit! Libero placeat quae et dicta qui, asperiores vero temporibus sapiente nobis aspernatur quibusdam id voluptatum deserunt fugit dolores iusto debitis rem odit tempora, voluptatem nulla necessitatibus repudiandae adipisci! Quis quidem neque, voluptatum corporis labore architecto quae cumque porro. Laboriosam, necessitatibus nisi.</p>
+              </div>
+              <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+              <h3>Recent Work</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod earum ipsam et nostrum enim commodi ex mollitia culpa corporis, autem porro, sed ea quos debitis aliquid! Quod atque veniam, perspiciatis voluptate facilis nisi architecto velit voluptatum accusantium magnam quisquam corporis eum nulla sunt, quia dolor voluptates. Recusandae non minima unde, tempore vel sunt ex ut.</p>
+              </div>
+              </div>
+            </div>
+        )
+      }
+    });
+
+    var Footer = React.createClass({
+       
+      getDefaultProps: function(){
+        return {
+            year: '2016'
+        }
+      },
+      render: function(){
+        return(
+          
+            
+             <div className="container">
+                <hr/>
+                <footer>
+                  <p>&copy; {this.props.year} ReactJS, Inc.</p>
+                </footer>
+              </div> 
+            
+        )
+      }
+    });
+
+
+
+    // Main App Component
+    var App = React.createClass({
+      getInitialState: function () {
+        return {
+          page: 'home'
+        }
+      },
+      handleHomeClick: function () {
+        this.setState({
+          page: 'home'
+        })
+      },
+      handleAboutClick: function () {
+        this.setState({
+          page: 'about'
+        })
+      },
+      render: function () {
+        if (this.state.page === 'home') {
+          var jumbotron = <Jumbotron />
+          var page = <PageHome />
+        } else if (this.state.page === 'about') {
+          var jumbotron = '';
+          var page = <PageAbout />
+        }
+        return(
+            <div>
+              <NavBar
+                page={this.state.page}
+                homeClick={this.handleHomeClick}
+                aboutClick={this.handleAboutClick} />
+              {jumbotron}
+              {page}
+              <Footer />
+            </div>
+        )
+      }
+    });
+
+		ReactDOM.render(
+			<App />,
+			document.getElementById('app')
+		);
+
+	</script>
+</body>
+</html>

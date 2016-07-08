@@ -1,0 +1,31 @@
+136-96-9329
+
+0 users
+Client ID
+177a0d23baa710f6f78e
+Client Secret
+44b31d585dd52a139fb014d9656e52f71b29002d
+
+
+
+Building 10 projects with REACT
+
+- Working with Application UI / View
+- Data Stores
+- Events and Actions
+- Unidirectional Data
+- JQuery / Ajax
+- NoSQL - Firebase / MongoLab
+- HTML5 Local storage
+- JSON APIs - Github, DuckDuckGo
+- Application State and Props
+
+
+Project one :
+- static bootstrap React components
+Using a React DOM make us deal with refresh and deal with separate components as supos to refresh the entier page so we can update the state.
+Also including babel witch is a compiler that allow us to write jsx code and convert that to Javascript, and it's basiclly XML inside Javascript
+
+Project two:
+- Working with Webpack compiler server and building the main app component and the profile component and getting the RepoList and Repo Component and Search Component, setup a multiple component and nest them, Working with forms and submission, working with events.
+
